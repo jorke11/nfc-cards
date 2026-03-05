@@ -73,7 +73,7 @@ export function Navbar() {
                   <DropdownMenuTrigger asChild>
                     <button className="relative h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                       <Avatar className="h-10 w-10">
-                        <AvatarImage src={session?.user?.image || undefined} alt={session?.user?.name || 'User'} />
+                        <AvatarImage src={undefined} alt={session?.user?.name || 'User'} />
                         <AvatarFallback>{getUserInitials(session?.user?.name)}</AvatarFallback>
                       </Avatar>
                     </button>
