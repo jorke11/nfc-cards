@@ -1,0 +1,11 @@
+info:
+  name: Profiles
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit
+
+docs:
+  content: Digital profile management endpoints
+  type: text/markdown

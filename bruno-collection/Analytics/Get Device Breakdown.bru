@@ -1,0 +1,15 @@
+meta {
+  name: Get Device Breakdown
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/analytics/profile/{{profileId}}/devices
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}

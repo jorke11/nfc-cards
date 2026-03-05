@@ -1,0 +1,57 @@
+info:
+  name: Create Profile
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/profiles"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "firstName": "Jorge",
+        "lastName": "Pinedo",
+        "username": "jpinedom",
+        "jobTitle": "Software Developer",
+        "company": "Onixtech",
+        "bio": "Passionate software developer",
+        "phone": "+573203776811",
+        "website": "https://jorgepinedo.com",
+        "socialLinks": {
+          "twitter": "https://twitter.com/jorge-pinedo",
+          "linkedin": "https://linkedin.com/in/pinedo",
+          "github": "https://github.com/pinedo"
+        },
+        "themeSettings": {
+          "primaryColor": "#4F46E5",
+          "backgroundColor": "#FFFFFF"
+        }
+      }
+  auth:
+    type: bearer
+    token: "{{accessToken}}"
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.getStatus() === 201) {
+            var jsonData = res.getBody();
+            bru.setVar('profileId', jsonData.id);
+            bru.setVar('uniqueId', jsonData.uniqueId);
+            test('Profile created successfully', function () {
+                expect(jsonData.uniqueId).to.exist;
+            });
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create a new digital profile

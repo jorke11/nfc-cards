@@ -1,0 +1,11 @@
+info:
+  name: NFC
+  type: folder
+  seq: 6
+
+request:
+  auth: inherit
+
+docs:
+  content: NFC card redirect endpoint
+  type: text/markdown

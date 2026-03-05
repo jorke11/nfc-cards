@@ -1,0 +1,23 @@
+meta {
+  name: Create NFC Tag
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/nfc/tags
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "profileId": "{{profileId}}",
+    "tagId": "NFC-TAG-12345",
+    "tagType": "ntag215"
+  }
+}

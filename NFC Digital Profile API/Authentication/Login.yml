@@ -1,0 +1,40 @@
+info:
+  name: Login
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/auth/login"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "email": "jpinedom@hotmail.com",
+        "password": "P1n3d08710+"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.getStatus() === 200 || res.getStatus() === 201) {
+            var jsonData = res.getBody();
+            bru.setVar('accessToken', jsonData.accessToken);
+            bru.setVar('userId', jsonData.user.id);
+            test('Login successful', function () {
+                expect(jsonData.accessToken).to.exist;
+            });
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Login with email and password

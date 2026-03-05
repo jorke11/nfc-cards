@@ -1,0 +1,15 @@
+meta {
+  name: Activate NFC Tag
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{baseUrl}}/nfc/tags/NFC-TAG-12345/activate
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}

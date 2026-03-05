@@ -1,0 +1,11 @@
+meta {
+  name: Get Public Profile by Username
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/profiles/username/{{username}}
+  body: none
+  auth: none
+}

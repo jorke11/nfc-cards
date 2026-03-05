@@ -1,0 +1,20 @@
+meta {
+  name: Get Profile Analytics
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/analytics/profile/{{profileId}}?startDate=2024-01-01&endDate=2024-12-31
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+params:query {
+  startDate: 2024-01-01
+  endDate: 2024-12-31
+}

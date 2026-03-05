@@ -1,0 +1,19 @@
+meta {
+  name: Track Profile View
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/analytics/track-view/{{uniqueId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15",
+    "ipAddress": "192.168.1.1",
+    "referrer": "https://linkedin.com"
+  }
+}

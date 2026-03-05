@@ -1,0 +1,15 @@
+meta {
+  name: Get User NFC Tags
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/nfc/tags
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Update Profile
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/profiles/{{profileId}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "firstName": "John Updated",
+    "bio": "Updated bio text",
+    "themeSettings": {
+      "primaryColor": "#10B981"
+    }
+  }
+}

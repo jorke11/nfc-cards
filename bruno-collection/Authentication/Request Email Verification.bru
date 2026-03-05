@@ -1,0 +1,19 @@
+meta {
+  name: Request Email Verification
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/auth/request-email-verification
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {}
+}

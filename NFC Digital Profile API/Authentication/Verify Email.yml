@@ -1,0 +1,26 @@
+info:
+  name: Verify Email
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{baseUrl}}/auth/verify-email"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "token": "f9e86ac2e9a2f254a6320057e6bdadd9259a239fbb696b26af0b54936ca31df5"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Verify email address with token

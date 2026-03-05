@@ -1,0 +1,19 @@
+meta {
+  name: Upload Cover Image
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/storage/upload/cover-image
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:multipart-form {
+  file: @file(/path/to/your/cover.jpg)
+}

@@ -1,0 +1,11 @@
+meta {
+  name: Get Public Profile by UniqueId
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/profiles/public/{{uniqueId}}
+  body: none
+  auth: none
+}

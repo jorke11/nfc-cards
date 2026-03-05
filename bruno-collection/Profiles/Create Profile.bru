@@ -1,0 +1,54 @@
+meta {
+  name: Create Profile
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/profiles
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "username": "johndoe",
+    "company": "Acme Inc",
+    "jobTitle": "Software Engineer",
+    "bio": "Passionate developer",
+    "phone": "+1234567890",
+    "email": "john@example.com",
+    "website": "https://johndoe.com",
+    "location": "New York, USA",
+    "socialLinks": [
+      {
+        "platform": "linkedin",
+        "url": "https://linkedin.com/in/johndoe",
+        "isActive": true
+      },
+      {
+        "platform": "github",
+        "url": "https://github.com/johndoe",
+        "isActive": true
+      }
+    ],
+    "themeSettings": {
+      "primaryColor": "#3B82F6",
+      "layout": "modern"
+    }
+  }
+}
+
+script:post-response {
+  if (res.status === 201) {
+    bru.setVar("profileId", res.body.id);
+    bru.setVar("uniqueId", res.body.uniqueId);
+    bru.setVar("username", res.body.username);
+  }
+}

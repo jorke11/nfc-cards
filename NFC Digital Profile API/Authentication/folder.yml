@@ -1,0 +1,11 @@
+info:
+  name: Authentication
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit
+
+docs:
+  content: Authentication endpoints for user registration, login, and password management
+  type: text/markdown

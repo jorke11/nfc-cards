@@ -1,0 +1,29 @@
+opencollection: 1.0.0
+
+info:
+  name: NFC Digital Profile API
+
+request:
+  variables:
+    - name: baseUrl
+      value: http://localhost:4000/api
+    - name: accessToken
+      value: ""
+    - name: userId
+      value: ""
+    - name: profileId
+      value: ""
+    - name: uniqueId
+      value: ""
+    - name: username
+      value: ""
+
+docs:
+  content: Complete API collection for NFC Digital Profile Platform with all endpoints for authentication, profiles, analytics, and more.
+  type: text/markdown
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
